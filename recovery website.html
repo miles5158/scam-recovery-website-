@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RecoverShield — Scam Recovery Specialists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0B1F3A;
+    --navy-mid: #142D52;
+    --blue: #1A6BCC;
+    --blue-light: #2F88F0;
+    --gold: #C8860A;
+    --gold-light: #F0A828;
+    --cream: #F7F5F0;
+    --white: #FFFFFF;
+    --gray-100: #F1EFF9;
+    --gray-200: #E2E0DB;
+    --gray-400: #A09E97;
+    --gray-600: #5C5A55;
+    --green: #1A7A4A;
+    --green-light: #E3F5EB;
+    --red: #B02020;
+    --red-light: #FAECEC;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.14);
+    --radius: 10px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); font-size: 15px; line-height: 1.65; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy); padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-icon { width: 34px; height: 34px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+  .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+  .nav-logo-text { font-size: 18px; font-weight: 700; color: white; letter-spacing: -0.3px; }
+  .nav-logo-text span { color: var(--gold-light); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: white; }
+  .nav-cta { background: var(--gold); color: var(--navy); padding: 9px 20px; border-radius: 7px; font-weight: 600; font-size: 14px; text-decoration: none; transition: background 0.2s; white-space: nowrap; }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1A3A6A 100%);
+    padding: 90px 5% 80px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge { display: inline-block; background: rgba(200,134,10,0.2); border: 1px solid rgba(200,134,10,0.5); color: var(--gold-light); padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 22px; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 5vw, 58px); color: white; line-height: 1.15; margin-bottom: 22px; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .hero h1 em { color: var(--gold-light); font-style: italic; }
+  .hero p { color: rgba(255,255,255,0.72); font-size: 17px; max-width: 560px; margin: 0 auto 38px; }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: var(--navy); padding: 13px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(200,134,10,0.4); }
+  .btn-outline { background: transparent; color: white; padding: 13px 28px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.35); cursor: pointer; transition: all 0.2s; display: inline-block; }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+  .hero-stats { display: flex; gap: 40px; justify-content: center; margin-top: 60px; flex-wrap: wrap; }
+  .hero-stat { text-align: center; }
+  .hero-stat strong { display: block; font-size: 28px; font-weight: 700; color: white; }
+  .hero-stat span { font-size: 13px; color: rgba(255,255,255,0.55); }
+
+  /* TRUST BAR */
+  .trust-bar { background: var(--cream); border-bottom: 1px solid var(--gray-200); padding: 18px 5%; display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--gray-600); }
+  .trust-item svg { width: 16px; height: 16px; color: var(--green); flex-shrink: 0; }
+
+  /* SECTIONS */
+  section { padding: 72px 5%; }
+  .section-label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.5vw, 38px); color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+  .section-subtitle { color: var(--gray-600); font-size: 16px; max-width: 540px; }
+  .section-header { margin-bottom: 52px; }
+
+  /* SCAM TYPES */
+  .scam-types { background: var(--cream); }
+  .scam-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .scam-card { background: white; border-radius: var(--radius); padding: 22px 18px; border: 1px solid var(--gray-200); cursor: pointer; transition: all 0.2s; }
+  .scam-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .scam-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--gray-100); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 20px; }
+  .scam-card h3 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+  .scam-card p { font-size: 12px; color: var(--gray-600); line-height: 1.5; }
+
+  /* HOW IT WORKS */
+  .process-steps { display: flex; gap: 0; flex-wrap: wrap; }
+  .step { flex: 1; min-width: 200px; padding: 28px 24px; position: relative; }
+  .step::after { content: '→'; position: absolute; right: -10px; top: 38px; font-size: 18px; color: var(--gray-400); z-index: 1; }
+  .step:last-child::after { display: none; }
+  .step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+  .step h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--navy); }
+  .step p { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+
+  /* CASE INTAKE FORM */
+  .intake-section { background: var(--navy); color: white; }
+  .intake-section .section-title { color: white; }
+  .intake-section .section-subtitle { color: rgba(255,255,255,0.6); }
+  .intake-section .section-label { color: var(--gold-light); }
+  .intake-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .form-card { background: white; border-radius: 14px; padding: 36px; }
+  .form-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .form-subtitle { font-size: 13px; color: var(--gray-600); margin-bottom: 28px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 11px 14px; border: 1.5px solid var(--gray-200);
+    border-radius: 8px; font-size: 14px; font-family: 'Inter', sans-serif;
+    color: var(--navy); background: white; transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-submit { width: 100%; padding: 13px; background: var(--gold); color: var(--navy); border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+  .form-submit:hover { background: var(--gold-light); }
+  .form-disclaimer { font-size: 11px; color: var(--gray-400); margin-top: 12px; text-align: center; line-height: 1.5; }
+  .intake-info { padding: 10px 0; }
+  .intake-info h3 { font-family: 'DM Serif Display', serif; font-size: 26px; color: white; margin-bottom: 24px; line-height: 1.3; }
+  .info-point { display: flex; gap: 14px; margin-bottom: 24px; }
+  .info-point-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .info-point-text strong { display: block; font-size: 14px; color: white; margin-bottom: 3px; }
+  .info-point-text p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+  .success-rate-box { background: rgba(26,106,76,0.2); border: 1px solid rgba(26,106,76,0.4); border-radius: var(--radius); padding: 18px 20px; margin-top: 30px; display: flex; gap: 14px; align-items: center; }
+  .success-rate-box strong { font-size: 30px; font-weight: 700; color: #5DE8A0; display: block; }
+  .success-rate-box p { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+  /* SUCCESS MESSAGE */
+  .form-success { display: none; text-align: center; padding: 30px 20px; }
+  .form-success-icon { width: 60px; height: 60px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .form-success h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .form-success p { font-size: 14px; color: var(--gray-600); margin-bottom: 16px; }
+  .case-id-badge { display: inline-block; background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 6px; padding: 8px 16px; font-family: monospace; font-size: 14px; font-weight: 600; color: var(--navy); letter-spacing: 1px; }
+
+  /* CASE TRACKER */
+  .tracker-section { background: var(--cream); }
+  .tracker-box { background: white; border-radius: 14px; padding: 32px; border: 1px solid var(--gray-200); max-width: 680px; margin: 0 auto; box-shadow: var(--shadow-sm); }
+  .tracker-input-row { display: flex; gap: 10px; margin-bottom: 28px; }
+  .tracker-input { flex: 1; padding: 11px 14px; border: 1.5px solid var(--gray-200); border-radius: 8px; font-size: 14px; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
+  .tracker-input:focus { border-color: var(--blue); }
+  .btn-track { background: var(--navy); color: white; padding: 11px 22px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap; transition: background 0.2s; }
+  .btn-track:hover { background: var(--navy-mid); }
+  .tracker-result { display: none; }
+  .case-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--gray-200); }
+  .case-header-left h3 { font-size: 17px; font-weight: 700; color: var(--navy); }
+  .case-header-left p { font-size: 13px; color: var(--gray-600); margin-top: 3px; }
+  .status-badge { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .status-active { background: #E3F0FF; color: #1A5ECC; }
+  .status-pending { background: #FFF3DC; color: #A06000; }
+  .status-recovered { background: var(--green-light); color: var(--green); }
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--gray-200); }
+  .tl-item { position: relative; margin-bottom: 22px; }
+  .tl-dot { position: absolute; left: -24px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--gray-200); background: white; }
+  .tl-dot.done { background: var(--green); border-color: var(--green); }
+  .tl-dot.active { background: var(--blue); border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,107,204,0.2); }
+  .tl-item h4 { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .tl-item p { font-size: 12px; color: var(--gray-600); margin-top: 2px; }
+  .tl-date { font-size: 11px; color: var(--gray-400); margin-top: 3px; }
+  .tracker-hint { font-size: 13px; color: var(--gray-400); text-align: center; }
+  .tracker-hint strong { color: var(--navy); font-weight: 600; }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .testimonial-card { background: white; border: 1px solid var(--gray-200); border-radius: 14px; padding: 26px; box-shadow: var(--shadow-sm); }
+  .stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonial-text { font-size: 14px; color: var(--gray-600); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .author-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; flex-shrink: 0; }
+  .author-info strong { display: block; font-size: 13px; font-weight: 600; color: var(--navy); }
+  .author-info span { font-size: 12px; color: var(--gray-400); }
+  .recovery-tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-top: 4px; }
+
+  /* LIVE CHAT */
+  .chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 200; }
+  .chat-toggle { width: 58px; height: 58px; border-radius: 50%; background: var(--blue); color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(26,107,204,0.45); transition: transform 0.2s, background 0.2s; font-size: 22px; }
+  .chat-toggle:hover { transform: scale(1.08); background: var(--blue-light); }
+  .chat-unread { position: absolute; top: 0; right: 0; width: 18px; height: 18px; background: red; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: white; }
+  .chat-window { display: none; position: absolute; bottom: 72px; right: 0; width: 320px; background: white; border-radius: 16px; box-shadow: var(--shadow-lg); border: 1px solid var(--gray-200); overflow: hidden; flex-direction: column; }
+  .chat-window.open { display: flex; }
+  .chat-header { background: var(--navy); padding: 16px 18px; display: flex; align-items: center; gap: 10px; }
+  .chat-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--navy); flex-shrink: 0; }
+  .chat-header-info strong { display: block; color: white; font-size: 14px; }
+  .chat-header-info span { font-size: 11px; color: rgba(255,255,255,0.55); }
+  .online-dot { width: 8px; height: 8px; background: #44DE7A; border-radius: 50%; display: inline-block; margin-right: 5px; }
+  .chat-messages { height: 240px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; background: #FAFAF8; }
+  .chat-msg { max-width: 85%; }
+  .chat-msg.bot { align-self: flex-start; }
+  .chat-msg.user { align-self: flex-end; }
+  .chat-bubble { padding: 10px 13px; border-radius: 14px; font-size: 13px; line-height: 1.5; }
+  .chat-msg.bot .chat-bubble { background: white; border: 1px solid var(--gray-200); color: var(--navy); border-bottom-left-radius: 4px; }
+  .chat-msg.user .chat-bubble { background: var(--blue); color: white; border-bottom-right-radius: 4px; }
+  .chat-time { font-size: 10px; color: var(--gray-400); margin-top: 3px; padding: 0 4px; }
+  .chat-msg.user .chat-time { text-align: right; }
+  .chat-input-area { padding: 12px; border-top: 1px solid var(--gray-200); display: flex; gap: 8px; }
+  .chat-input { flex: 1; padding: 9px 12px; border: 1.5px solid var(--gray-200); border-radius: 8px; font-size: 13px; font-family: 'Inter', sans-serif; outline: none; resize: none; }
+  .chat-input:focus { border-color: var(--blue); }
+  .chat-send { background: var(--blue); color: white; border: none; border-radius: 8px; width: 34px; height: 34px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; flex-shrink: 0; }
+  .chat-send:hover { background: var(--blue-light); }
+  .chat-send svg { width: 14px; height: 14px; }
+  .quick-replies { padding: 8px 12px 2px; display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--gray-200); background: white; }
+  .quick-reply { padding: 5px 10px; background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 12px; font-size: 11px; font-weight: 500; color: var(--navy); cursor: pointer; transition: all 0.15s; }
+  .quick-reply:hover { background: var(--blue); color: white; border-color: var(--blue); }
+
+  /* FAQ */
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--gray-200); }
+  .faq-question { width: 100%; text-align: left; padding: 18px 0; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 15px; font-weight: 600; color: var(--navy); font-family: 'Inter', sans-serif; }
+  .faq-icon { font-size: 20px; color: var(--gray-400); transition: transform 0.2s; flex-shrink: 0; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-answer { display: none; padding: 0 0 18px; font-size: 14px; color: var(--gray-600); line-height: 1.7; }
+  .faq-item.open .faq-answer { display: block; }
+
+  /* FOOTER */
+  footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 52px 5% 32px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  .footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 14px; max-width: 280px; }
+  .footer-col h4 { font-size: 13px; font-weight: 600; color: white; margin-bottom: 14px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 9px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: white; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; flex-wrap: gap; gap: 10px; }
+  .footer-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+  .footer-badge { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 5px; padding: 4px 10px; font-size: 11px; color: rgba(255,255,255,0.5); }
+
+  /* ALERT BANNER */
+  .alert-banner { background: #FFF8E1; border-bottom: 1px solid #F0D878; padding: 10px 5%; display: flex; align-items: center; gap: 10px; font-size: 13px; color: #5A4300; }
+  .alert-banner strong { font-weight: 600; }
+  .alert-banner svg { flex-shrink: 0; width: 16px; height: 16px; color: var(--gold); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .intake-grid { grid-template-columns: 1fr; }
+    .intake-info { order: -1; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .process-steps { flex-direction: column; }
+    .step::after { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .chat-window { width: 290px; }
+  }
+  @media (max-width: 480px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .hero { padding: 60px 5%; }
+  }
+
+  /* SMOOTH ANIMATIONS */
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-in { animation: fadeInUp 0.45s ease forwards; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; margin-right: 6px; }
+  .typing-dots span { display: inline-block; width: 6px; height: 6px; background: var(--gray-400); border-radius: 50%; margin: 0 2px; animation: bounce 1.2s infinite; }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+</style>
+</head>
+<body>
+
+<!-- ALERT BANNER -->
+<div class="alert-banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  <span><strong>Scam Alert:</strong> Romance scams and crypto fraud have surged 340% in 2024. If you've been a victim, don't delay — contact us now.</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.2 9 11.4 5.25-1.2 9-6.15 9-11.4V7l-9-5z"/></svg>
+    </div>
+    <span class="nav-logo-text">Recover<span>Shield</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="#scam-types">Scam types</a></li>
+    <li><a href="#tracker">Track my case</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#intake" class="nav-cta">Free consultation</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-badge">Trusted by 12,000+ victims worldwide</div>
+  <h1>We recover what <em>scammers took</em> from you</h1>
+  <p>Our certified fraud investigators and legal experts have recovered over $180 million for victims of online scams, cryptocurrency fraud, and investment schemes.</p>
+  <div class="hero-actions">
+    <a href="#intake" class="btn-primary">Start free case review</a>
+    <a href="#tracker" class="btn-outline">Track existing case</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>$180M+</strong><span>Total recovered</span></div>
+    <div class="hero-stat"><strong>12,400+</strong><span>Cases resolved</span></div>
+    <div class="hero-stat"><strong>78%</strong><span>Success rate</span></div>
+    <div class="hero-stat"><strong>48hr</strong><span>Avg. first response</span></div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    SSL Encrypted
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    100% Confidential
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    No upfront fees
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    FCA Regulated Partners
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    24/7 Support
+  </div>
+</div>
+
+<!-- SCAM TYPES -->
+<section class="scam-types" id="scam-types">
+  <div class="section-header">
+    <div class="section-label">What we handle</div>
+    <h2 class="section-title">Every major type of fraud</h2>
+    <p class="section-subtitle">Our team has experience recovering funds from nearly every category of online scam and financial fraud.</p>
+  </div>
+  <div class="scam-grid">
+    <div class="scam-card"><div class="scam-icon">₿</div><h3>Crypto fraud</h3><p>Fake exchanges, rug pulls, wallet draining, and investment scams.</p></div>
+    <div class="scam-card"><div class="scam-icon">💕</div><h3>Romance scams</h3><p>Pig butchering, catfishing, and fake relationship schemes.</p></div>
+    <div class="scam-card"><div class="scam-icon">📈</div><h3>Investment fraud</h3><p>Fake brokers, Ponzi schemes, and unauthorized trading.</p></div>
+    <div class="scam-card"><div class="scam-icon">🏦</div><h3>Bank fraud</h3><p>Unauthorized transfers, wire fraud, and account takeover.</p></div>
+    <div class="scam-card"><div class="scam-icon">🎰</div><h3>Online gambling</h3><p>Rigged platforms that refuse legitimate withdrawals.</p></div>
+    <div class="scam-card"><div class="scam-icon">🖥️</div><h3>Tech support scams</h3><p>Remote access fraud and fake virus removal schemes.</p></div>
+    <div class="scam-card"><div class="scam-icon">📧</div><h3>Phishing</h3><p>Email, SMS, and spoofed website credential theft.</p></div>
+    <div class="scam-card"><div class="scam-icon">🛒</div><h3>E-commerce fraud</h3><p>Fake shops, non-delivery, counterfeit goods.</p></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="section-header">
+    <div class="section-label">Our process</div>
+    <h2 class="section-title">From report to recovery</h2>
+    <p class="section-subtitle">A clear, proven process developed over 8 years of fraud investigation.</p>
+  </div>
+  <div class="process-steps">
+    <div class="step"><div class="step-num">1</div><h3>Free consultation</h3><p>Submit your case details. Our specialist reviews your situation within 24 hours.</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Case assessment</h3><p>We trace the fraud, collect evidence, and build a recovery file for your case.</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Legal & financial action</h3><p>We engage banks, exchanges, and regulators with your documented claim.</p></div>
+    <div class="step"><div class="step-num">4</div><h3>Fund recovery</h3><p>Recovered funds are returned to your verified account. We take a success fee only.</p></div>
+  </div>
+</section>
+
+<!-- CASE INTAKE FORM -->
+<section class="intake-section" id="intake">
+  <div class="section-header">
+    <div class="section-label">Get started</div>
+    <h2 class="section-title">Report your case — it's free</h2>
+    <p class="section-subtitle">Tell us what happened. The more detail you provide, the stronger your case.</p>
+  </div>
+  <div class="intake-grid">
+    <div class="form-card">
+      <div id="formContent">
+        <div class="form-title">Case intake form</div>
+        <div class="form-subtitle">All information is encrypted and strictly confidential.</div>
+        <div class="form-group">
+          <label>Full name *</label>
+          <input type="text" id="fullName" placeholder="John Smith">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email address *</label>
+            <input type="email" id="email" placeholder="you@email.com">
+          </div>
+          <div class="form-group">
+            <label>Phone number</label>
+            <input type="tel" id="phone" placeholder="+1 555 000 0000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Type of scam *</label>
+            <select id="scamType">
+              <option value="">Select scam type</option>
+              <option>Cryptocurrency fraud</option>
+              <option>Romance scam / Pig butchering</option>
+              <option>Investment / Broker fraud</option>
+              <option>Bank / Wire transfer fraud</option>
+              <option>Tech support scam</option>
+              <option>Online gambling fraud</option>
+              <option>Phishing / Identity theft</option>
+              <option>E-commerce fraud</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Amount lost (USD) *</label>
+            <input type="number" id="amountLost" placeholder="e.g. 25000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>When did this happen? *</label>
+          <input type="date" id="incidentDate">
+        </div>
+        <div class="form-group">
+          <label>Describe what happened *</label>
+          <textarea id="description" placeholder="Describe how you were contacted, what you were told, how money was transferred, and any details about the scammers..."></textarea>
+        </div>
+        <div id="formError" style="display:none; color:#B02020; font-size:13px; margin-bottom:14px; padding:10px 12px; background:#FAECEC; border-radius:6px;"></div>
+        <button class="form-submit" id="submitBtn" onclick="submitCase()">Submit case for free review</button>
+        <p class="form-disclaimer">🔒 Your data is protected by 256-bit SSL encryption. We never share your information. By submitting, you agree to our Terms of Service and Privacy Policy.</p>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Case submitted successfully</h3>
+        <p>A specialist will contact you within <strong>24 hours</strong>. Keep an eye on your email.</p>
+        <p style="font-size:13px; color:#5C5A55; margin-bottom:14px;">Your case reference number:</p>
+        <div class="case-id-badge" id="generatedCaseId">RS-2024-XXXXX</div>
+        <p style="font-size:12px; color:#A09E97; margin-top:12px;">Save this number to track your case progress</p>
+        <button onclick="trackFromSuccess()" style="margin-top:16px; background:var(--navy); color:white; border:none; padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; font-family:Inter,sans-serif;">Track my case →</button>
+      </div>
+    </div>
+    <div class="intake-info">
+      <h3>Why victims choose RecoverShield</h3>
+      <div class="info-point">
+        <div class="info-point-icon">🔍</div>
+        <div class="info-point-text"><strong>Deep forensic investigation</strong><p>We trace crypto transactions, identify shell accounts, and document fraud chains across jurisdictions.</p></div>
+      </div>
+      <div class="info-point">
+        <div class="info-point-icon">⚖️</div>
+        <div class="info-point-text"><strong>Legal enforcement network</strong><p>Partnerships with law firms in 40+ countries to file civil claims and cooperate with law enforcement.</p></div>
+      </div>
+      <div class="info-point">
+        <div class="info-point-icon">🏛️</div>
+        <div class="info-point-text"><strong>Regulatory escalation</strong><p>We file on your behalf with SEC, FCA, FinCEN, FBI IC3, and international regulators.</p></div>
+      </div>
+      <div class="info-point">
+        <div class="info-point-icon">💬</div>
+        <div class="info-point-text"><strong>Dedicated case manager</strong><p>One specialist manages your case start to finish — no call centers, no handoffs.</p></div>
+      </div>
+      <div class="success-rate-box">
+        <div>
+          <strong>78%</strong>
+          <small style="font-size:11px; color:rgba(255,255,255,0.5); display:block; margin-top:2px;">cases result in recovery</small>
+        </div>
+        <p>Based on cases where minimum $5,000 was lost and fraud occurred within 24 months. Full or partial recovery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE TRACKER -->
+<section class="tracker-section" id="tracker">
+  <div class="section-header" style="text-align:center;">
+    <div class="section-label">Case status</div>
+    <h2 class="section-title">Track your case</h2>
+    <p class="section-subtitle" style="margin: 0 auto;">Enter your case ID to see real-time status and updates from your investigator.</p>
+  </div>
+  <div class="tracker-box">
+    <div class="tracker-input-row">
+      <input type="text" class="tracker-input" id="caseIdInput" placeholder="Enter case ID (e.g. RS-2024-78432)" />
+      <button class="btn-track" id="trackBtn" onclick="trackCase()">Track case</button>
+    </div>
+    <div class="tracker-hint" id="trackerHint">
+      Try: <strong>RS-2024-78432</strong>, <strong>RS-2024-56109</strong>, or <strong>RS-2024-90221</strong>
+    </div>
+    <div class="tracker-result" id="trackerResult"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header">
+    <div class="section-label">Client results</div>
+    <h2 class="section-title">Real people, real recoveries</h2>
+    <p class="section-subtitle">Verified reviews from clients who recovered funds with our help.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"I lost $47,000 to a fake crypto trading platform. RecoverShield traced the wallet addresses and worked with my bank's fraud team to claw back most of it. I thought it was gone forever."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:#E3F0FF; color:#1A5ECC;">MK</div>
+        <div class="author-info">
+          <strong>Michael K.</strong>
+          <span>Texas, USA</span>
+          <div class="recovery-tag">$39,200 recovered</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"I was in a romance scam for 8 months and sent over $120,000 to someone I thought I loved. The team handled everything with compassion — no judgment, just results."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:#FBEAF0; color:#993556;">SP</div>
+        <div class="author-info">
+          <strong>Sandra P.</strong>
+          <span>Ontario, Canada</span>
+          <div class="recovery-tag">$81,500 recovered</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★☆</div>
+      <p class="testimonial-text">"A fake investment broker had my money locked on their platform for 14 months. RecoverShield filed a claim with FCA and my bank. Took 4 months but I got 70% back."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:#E3F5EB; color:#1A7A4A;">JO</div>
+        <div class="author-info">
+          <strong>James O.</strong>
+          <span>London, UK</span>
+          <div class="recovery-tag">$28,000 recovered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--cream);" id="faq">
+  <div class="section-header" style="text-align:center;">
+    <div class="section-label">Questions answered</div>
+    <h2 class="section-title">Frequently asked questions</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">How much does the service cost? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">The initial case consultation is completely free. We operate on a success-based fee model: we only charge a commission if we recover funds for you. The percentage ranges from 15–30% depending on case complexity and amount. There are no upfront fees, no retainers, and no charges if we fail to recover anything.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">What is the minimum case size? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">We typically take cases where the loss amount is at least $2,000 USD. Smaller amounts can still be reported, but recovery costs may make them less viable. We'll be transparent about this in your free consultation.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">Can crypto transactions really be recovered? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">In many cases, yes. Blockchain transactions are traceable, and our on-chain forensics team can follow fund flows even through mixing services and multiple wallets. We work with regulated exchanges to freeze and recover assets, and in some cases coordinate with law enforcement to seize funds held by identified scammers.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">How long does the recovery process take? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">It depends on the complexity of the fraud and which institutions are involved. Simple bank reversals can take 2–6 weeks. Crypto recovery through exchange cooperation typically takes 2–5 months. Cases requiring court action or regulatory intervention can take 6–18 months. We keep you updated throughout.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">What documents do I need to provide? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Useful documents include: bank or wire transfer records, cryptocurrency transaction IDs/wallet addresses, communication logs (emails, chat screenshots), any contracts or invoices from the fraudulent platform, and any identity documents you shared with the scammer. The more evidence you have, the stronger your case.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">Is my personal information kept confidential? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Absolutely. All case information is encrypted with AES-256 and stored in compliance with GDPR. We never share your details with third parties without explicit consent, except where legally required for recovery purposes (such as submitting to regulators or law enforcement on your behalf). You control what is disclosed.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="margin-bottom:0">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.2 9 11.4 5.25-1.2 9-6.15 9-11.4V7l-9-5z"/></svg>
+        </div>
+        <span class="nav-logo-text">Recover<span>Shield</span></span>
+      </a>
+      <p>Specialists in financial fraud recovery. We've helped thousands of victims reclaim what was taken from them.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Crypto recovery</a></li>
+        <li><a href="#">Investment fraud</a></li>
+        <li><a href="#">Romance scams</a></li>
+        <li><a href="#">Bank fraud</a></li>
+        <li><a href="#">Phishing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Our team</a></li>
+        <li><a href="#">Case studies</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy policy</a></li>
+        <li><a href="#">Terms of service</a></li>
+        <li><a href="#">Cookie policy</a></li>
+        <li><a href="#">Compliance</a></li>
+        <li><a href="#">Refund policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 RecoverShield Ltd. All rights reserved.</span>
+    <div class="footer-badges">
+      <span class="footer-badge">SSL Secured</span>
+      <span class="footer-badge">GDPR Compliant</span>
+      <span class="footer-badge">FCA Regulated Partners</span>
+      <span class="footer-badge">ISO 27001</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LIVE CHAT WIDGET -->
+<div class="chat-widget">
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-avatar">SR</div>
+      <div class="chat-header-info">
+        <strong>Sarah — Case Advisor</strong>
+        <span><span class="online-dot"></span>Online now · Typical reply: 2 min</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">
+        <div class="chat-bubble">👋 Hi! I'm Sarah, a case advisor at RecoverShield. How can I help you today?</div>
+        <div class="chat-time">Just now</div>
+      </div>
+      <div class="chat-msg bot">
+        <div class="chat-bubble">If you've been a victim of fraud, you can tell me what happened and I'll help you understand your options — completely free.</div>
+        <div class="chat-time">Just now</div>
+      </div>
+    </div>
+    <div class="quick-replies" id="quickReplies">
+      <div class="quick-reply" onclick="sendQuickReply('I was scammed online')">I was scammed online</div>
+      <div class="quick-reply" onclick="sendQuickReply('Crypto fraud')">Crypto fraud</div>
+      <div class="quick-reply" onclick="sendQuickReply('What are your fees?')">Your fees?</div>
+      <div class="quick-reply" onclick="sendQuickReply('Track my case')">Track my case</div>
+    </div>
+    <div class="chat-input-area">
+      <textarea class="chat-input" id="chatInput" placeholder="Type a message..." rows="1" onkeydown="handleChatKey(event)"></textarea>
+      <button class="chat-send" onclick="sendChatMessage()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+  <button class="chat-toggle" id="chatToggle" onclick="toggleChat()">
+    <span id="chatIcon">💬</span>
+    <div class="chat-unread" id="chatUnread">1</div>
+  </button>
+</div>
+
+<script>
+// ========== FORM SUBMISSION ==========
+function generateCaseId() {
+  const num = Math.floor(10000 + Math.random() * 90000);
+  return `RS-2024-${num}`;
+}
+
+function submitCase() {
+  const name = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const scamType = document.getElementById('scamType').value;
+  const amount = document.getElementById('amountLost').value;
+  const desc = document.getElementById('description').value.trim();
+  const errEl = document.getElementById('formError');
+
+  errEl.style.display = 'none';
+  if (!name || !email || !scamType || !amount || !desc) {
+    errEl.textContent = '⚠ Please fill in all required fields marked with *.';
+    errEl.style.display = 'block';
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errEl.textContent = '⚠ Please enter a valid email address.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Submitting...';
+
+  setTimeout(() => {
+    const caseId = generateCaseId();
+    document.getElementById('generatedCaseId').textContent = caseId;
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    // Store so tracker can find it
+    window._submittedCase = { id: caseId, name, scamType, amount };
+  }, 1800);
+}
+
+function trackFromSuccess() {
+  const id = document.getElementById('generatedCaseId').textContent;
+  document.getElementById('caseIdInput').value = id;
+  document.getElementById('tracker').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => trackCase(), 600);
+}
+
+// ========== CASE TRACKER ==========
+const demoCases = {
+  'RS-2024-78432': {
+    name: 'Michael K.',
+    type: 'Cryptocurrency fraud',
+    amount: '$47,000',
+    status: 'active',
+    statusLabel: 'In progress',
+    submitted: 'Nov 3, 2024',
+    steps: [
+      { label: 'Case submitted', detail: 'Initial report received and logged', date: 'Nov 3, 2024', done: true },
+      { label: 'Case assessment', detail: 'Fraud reviewed, blockchain trace started', date: 'Nov 5, 2024', done: true },
+      { label: 'Evidence collected', detail: 'On-chain forensics completed, 3 wallets identified', date: 'Nov 11, 2024', done: true },
+      { label: 'Exchange engaged', detail: 'Formal request sent to Binance compliance team', date: 'Nov 14, 2024', done: true },
+      { label: 'Awaiting exchange response', detail: 'Estimated 2–4 weeks for freeze order review', date: 'Expected Dec 10, 2024', done: false, active: true },
+      { label: 'Funds recovered', detail: 'Pending', date: '', done: false }
+    ]
+  },
+  'RS-2024-56109': {
+    name: 'Sandra P.',
+    type: 'Romance scam / Pig butchering',
+    amount: '$120,000',
+    status: 'recovered',
+    statusLabel: 'Partially recovered',
+    submitted: 'Aug 17, 2024',
+    steps: [
+      { label: 'Case submitted', detail: 'Initial report received', date: 'Aug 17, 2024', done: true },
+      { label: 'Case assessment', detail: 'Fraud network identified across 3 jurisdictions', date: 'Aug 20, 2024', done: true },
+      { label: 'Evidence collected', detail: 'Bank records, chat logs, wire transfers compiled', date: 'Aug 28, 2024', done: true },
+      { label: 'Regulatory filing', detail: 'Submitted to FinCEN and FBI IC3', date: 'Sep 5, 2024', done: true },
+      { label: 'Bank chargeback', detail: '$81,500 recovered via bank reversal and chargeback', date: 'Oct 22, 2024', done: true },
+      { label: 'Case closed', detail: 'Final settlement completed', date: 'Nov 1, 2024', done: true }
+    ]
+  },
+  'RS-2024-90221': {
+    name: 'James O.',
+    type: 'Investment / Broker fraud',
+    amount: '$40,000',
+    status: 'active',
+    statusLabel: 'Under review',
+    submitted: 'Oct 28, 2024',
+    steps: [
+      { label: 'Case submitted', detail: 'Initial report received', date: 'Oct 28, 2024', done: true },
+      { label: 'Case assessment', detail: 'Reviewing broker registration and platform activity', date: 'Oct 30, 2024', done: true },
+      { label: 'FCA complaint filed', detail: 'Formal complaint lodged with UK Financial Conduct Authority', date: 'Nov 7, 2024', done: false, active: true },
+      { label: 'Bank claim submitted', detail: 'Awaiting case review', date: '', done: false },
+      { label: 'Funds recovered', detail: 'Pending', date: '', done: false }
+    ]
+  }
+};
+
+function trackCase() {
+  const input = document.getElementById('caseIdInput').value.trim().toUpperCase();
+  const resultEl = document.getElementById('trackerResult');
+  const hintEl = document.getElementById('trackerHint');
+  const btn = document.getElementById('trackBtn');
+
+  btn.textContent = 'Searching...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    btn.textContent = 'Track case';
+    btn.disabled = false;
+
+    let caseData = demoCases[input];
+    // Handle dynamically submitted case
+    if (!caseData && window._submittedCase && window._submittedCase.id.toUpperCase() === input) {
+      const sc = window._submittedCase;
+      caseData = {
+        name: sc.name, type: sc.scamType, amount: `$${Number(sc.amount).toLocaleString()}`,
+        status: 'pending', statusLabel: 'Pending review',
+        submitted: new Date().toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}),
+        steps: [
+          { label: 'Case submitted', detail: 'Your report has been received', date: 'Today', done: true },
+          { label: 'Under review', detail: 'A specialist will assess your case within 24 hours', date: 'Expected tomorrow', done: false, active: true },
+          { label: 'Investigation begins', detail: 'Pending', date: '', done: false },
+          { label: 'Recovery action', detail: 'Pending', date: '', done: false }
+        ]
+      };
+    }
+
+    if (!caseData) {
+      resultEl.style.display = 'block';
+      hintEl.style.display = 'none';
+      resultEl.innerHTML = `<div style="text-align:center; padding:20px; color:var(--red); font-size:14px;">
+        <div style="font-size:32px; margin-bottom:10px;">🔍</div>
+        <strong>Case not found</strong><br>
+        <span style="color:var(--gray-600);">Check the ID and try again. IDs look like <strong>RS-2024-XXXXX</strong>.</span>
+      </div>`;
+      return;
+    }
+
+    const statusClass = caseData.status === 'recovered' ? 'status-recovered' : caseData.status === 'pending' ? 'status-pending' : 'status-active';
+    const stepsHtml = caseData.steps.map(s => `
+      <div class="tl-item">
+        <div class="tl-dot ${s.done ? 'done' : s.active ? 'active' : ''}"></div>
+        <h4 style="color:${s.done ? 'var(--navy)' : s.active ? 'var(--blue)' : 'var(--gray-400)'}">${s.label}</h4>
+        <p>${s.detail}</p>
+        ${s.date ? `<div class="tl-date">${s.date}</div>` : ''}
+      </div>`).join('');
+
+    resultEl.style.display = 'block';
+    hintEl.style.display = 'none';
+    resultEl.innerHTML = `
+      <div class="case-header">
+        <div class="case-header-left">
+          <h3>${input}</h3>
+          <p>${caseData.name} · ${caseData.type} · Loss: ${caseData.amount}</p>
+          <p style="font-size:12px; color:var(--gray-400);">Submitted: ${caseData.submitted}</p>
+        </div>
+        <span class="status-badge ${statusClass}">${caseData.statusLabel}</span>
+      </div>
+      <div class="timeline">${stepsHtml}</div>
+      <p style="font-size:12px; color:var(--gray-400); margin-top:20px; text-align:center;">Questions about your case? Chat with us below or email case@recovershield.com</p>`;
+  }, 900);
+}
+
+// ========== FAQ TOGGLE ==========
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
+// ========== LIVE CHAT ==========
+const chatResponses = {
+  default: ["Thank you for reaching out. Can you tell me more about what happened and approximately how much was lost?", "I understand how stressful this must be. Our team handles cases exactly like yours every day.", "That sounds like a serious case. I'd recommend submitting a formal case report so our investigators can review all the details. Would you like me to guide you through that?"],
+  fee: ["Our service is completely free upfront. We only charge a commission (15–30%) if we successfully recover funds for you. No recovery = no fee.", "You won't pay anything unless we recover money for you. The initial consultation and case assessment are both free."],
+  crypto: ["Crypto fraud is one of our specialties. Our blockchain forensics team can trace wallet flows even through mixers. What platform or wallet did you use?", "Many crypto scam victims think it's impossible to recover — but blockchain's transparency actually helps us trace funds. Tell me more about how it happened."],
+  track: ["You can track your case using the case ID you received when you submitted your report. Head to the 'Track my case' section and enter your ID.", "If you have your case ID (format: RS-2024-XXXXX), you can enter it in the tracker on this page. Don't have one? Submit a new case and you'll get one."],
+  scam: ["I'm so sorry to hear that. You're not alone — we help thousands of fraud victims every year. Can you tell me what type of scam it was?", "That must have been incredibly difficult. The important thing now is to act quickly — the sooner we start, the better the chances of recovery."],
+};
+
+let chatOpen = false;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chatWindow').classList.toggle('open', chatOpen);
+  document.getElementById('chatIcon').textContent = chatOpen ? '✕' : '💬';
+  document.getElementById('chatUnread').style.display = 'none';
+}
+
+function addMessage(text, isUser) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = `chat-msg ${isUser ? 'user' : 'bot'}`;
+  const now = new Date();
+  div.innerHTML = `<div class="chat-bubble">${text}</div><div class="chat-time">${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}</div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function showTyping() {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.id = 'typingIndicator';
+  div.innerHTML = `<div class="chat-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typingIndicator');
+  if (t) t.remove();
+}
+
+function getResponse(text) {
+  const t = text.toLowerCase();
+  if (t.includes('fee') || t.includes('cost') || t.includes('charge') || t.includes('price')) return chatResponses.fee;
+  if (t.includes('crypto') || t.includes('bitcoin') || t.includes('ethereum') || t.includes('wallet') || t.includes('blockchain')) return chatResponses.crypto;
+  if (t.includes('track') || t.includes('case id') || t.includes('status') || t.includes('update')) return chatResponses.track;
+  if (t.includes('scam') || t.includes('fraud') || t.includes('stolen') || t.includes('lost') || t.includes('victim')) return chatResponses.scam;
+  return chatResponses.default;
+}
+
+function sendChatMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  addMessage(text, true);
+  input.value = '';
+  document.getElementById('quickReplies').style.display = 'none';
+  showTyping();
+  setTimeout(() => {
+    removeTyping();
+    const responses = getResponse(text);
+    const reply = responses[Math.floor(Math.random() * responses.length)];
+    addMessage(reply, false);
+  }, 1200 + Math.random() * 800);
+}
+
+function sendQuickReply(text) {
+  document.getElementById('chatInput').value = text;
+  sendChatMessage();
+}
+
+function handleChatKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); }
+}
+
+// Trigger tracker if Enter pressed in case ID input
+document.getElementById('caseIdInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') trackCase();
+});
+</script>
+</body>
+</html>
